@@ -4,7 +4,6 @@ import (
 	"database/sql"
 	"database/sql/driver"
 	"fmt"
-	"gitee.com/fmpt/fmgo/logx"
 	"strconv"
 	"strings"
 )
@@ -38,13 +37,10 @@ func (l *Int64List) Scan(value interface{}) (err error) {
 
 func (l Int64List) Value() (driver.Value, error) {
 	str := l.ToString()
-	logx.Info("列表数据", l, str)
 	return str, nil
 }
 
 func (l Int64List) ToString() string {
-	//sp := fmt.Sprint(*l)
-	//strs := strings.Fields(sp)
 	return strings.Trim(strings.Join(strings.Fields(fmt.Sprint(l)), ","), "[]")
 }
 

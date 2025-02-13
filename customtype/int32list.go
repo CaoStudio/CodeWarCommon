@@ -4,7 +4,6 @@ import (
 	"database/sql"
 	"database/sql/driver"
 	"fmt"
-	caolog "github.com/CaoStudio/cao-log"
 	"strconv"
 	"strings"
 )
@@ -41,7 +40,6 @@ func (l *Int32List) Scan(value interface{}) (err error) {
 //goland:noinspection GoMixedReceiverTypes
 func (l Int32List) Value() (driver.Value, error) {
 	str := l.ToString()
-	caolog.Info("列表数据", l, str)
 	return str, nil
 }
 
